@@ -70,7 +70,6 @@
     
     //2.检查本地文件大小!
     if(![self checkLocalFileInfo]){
-        NSLog(@"文件已经下载完毕了!!");
         if (self.completionBlock) {
             self.completionBlock(self.filePath);
         }
@@ -178,7 +177,6 @@
     self.currentLength += data.length;
     
     float progress = (float)self.currentLength / self.expectedContentLength;
-    NSLog(@"%f  %@",progress,[NSThread currentThread]);
     //判断block是否存在
     if (self.progressBlock) {
         self.progressBlock(progress);
@@ -193,7 +191,6 @@
     [self.fileStream close];
     //停止运行循环
     CFRunLoopStop(self.downloadRunloop);
-    NSLog(@"下载完成");
     //判断BLock是否存在
     if (self.completionBlock) {
         //主线程回调
@@ -208,7 +205,6 @@
     [self.fileStream close];
     //停止运行循环
     CFRunLoopStop(self.downloadRunloop);
-    NSLog(@"%@",error.localizedDescription);
     
     //判断BLock是否存在
     if (self.failedBlock) {

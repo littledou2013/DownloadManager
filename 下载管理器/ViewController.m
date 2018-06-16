@@ -23,8 +23,13 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     LDDownloader * downloader = [[LDDownloader alloc]init];
-    [downloader downloadWithURL:[NSURL URLWithString:@"http://localhost/abc.wmv"] progress:nil completion:nil failed:nil];
-    
+    [downloader downloadWithURL:[NSURL URLWithString:@"https://dldir1.qq.com/qqfile/QQforMac/QQ_V6.4.0.dmg"] progress:^(float progress) {
+        NSLog(@"progress : %f", progress);
+    } completion:^(NSString *filePath) {
+        NSLog(@"filePath : %@", filePath);
+    } failed:^(NSString *errorMsg) {
+        NSLog(@"errorMsg : %@", errorMsg);
+    }];
 }
 
 
