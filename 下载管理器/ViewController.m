@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "LDDownloader.h"
 
 @interface ViewController ()
 
@@ -20,9 +21,10 @@
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    LDDownloader * downloader = [[LDDownloader alloc]init];
+    [downloader downloadWithURL:[NSURL URLWithString:@"http://localhost/abc.wmv"]];
+    
 }
 
 

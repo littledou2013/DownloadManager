@@ -15,6 +15,7 @@
 		1B9594F520D505E900121DC2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9594F420D505E900121DC2 /* main.m */; };
 		1B9594FF20D505E900121DC2 /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9594FE20D505E900121DC2 /* _____Tests.m */; };
 		1B95950A20D505E900121DC2 /* _____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B95950920D505E900121DC2 /* _____UITests.m */; };
+		1B95951920D5062D00121DC2 /* LDDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B95951820D5062D00121DC2 /* LDDownloader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		1B95950520D505E900121DC2 /* 下载管理器UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "下载管理器UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B95950920D505E900121DC2 /* _____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_____UITests.m"; sourceTree = "<group>"; };
 		1B95950B20D505E900121DC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B95951720D5062D00121DC2 /* LDDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDownloader.h; sourceTree = "<group>"; };
+		1B95951820D5062D00121DC2 /* LDDownloader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDDownloader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				1B9594F020D505E900121DC2 /* LaunchScreen.storyboard */,
 				1B9594F320D505E900121DC2 /* Info.plist */,
 				1B9594F420D505E900121DC2 /* main.m */,
+				1B95951720D5062D00121DC2 /* LDDownloader.h */,
+				1B95951820D5062D00121DC2 /* LDDownloader.m */,
 			);
 			path = "下载管理器";
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B95951920D5062D00121DC2 /* LDDownloader.m in Sources */,
 				1B9594EA20D505E900121DC2 /* ViewController.m in Sources */,
 				1B9594F520D505E900121DC2 /* main.m in Sources */,
 				1B9594E720D505E900121DC2 /* AppDelegate.m in Sources */,
