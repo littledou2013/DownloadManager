@@ -28,6 +28,11 @@
 
 /** 下载的Runloop */
 @property(assign,nonatomic)CFRunLoopRef downloadRunloop;
+
+//--------------BLOCK属性---------------
+@property(copy,nonatomic)void(^progressBlock)(float);
+@property(copy,nonatomic)void(^completionBlock)(NSString *);
+@property(copy,nonatomic)void(^failedBlock)(NSString *);
 @end
 /**
  NSURLSession下载
@@ -41,9 +46,21 @@
  */
 @implementation LDDownloader
 //这个方法给外界提供的.内部不要写"碎代码"
--(void)downloadWithURL:(NSURL *)url
+/**
+ 很多三方框架有一个共同特点(SDWebImage/AFN/ASI)
+ 进度的回调,是在异步线程回调的
+ -- 因为进度回调会调用多次,如果在主线程,会影响UI交互!!
+ 完成之后的回调,在主线程
+ -- 通常调用方不需要关心线程间的通讯,一旦完成直接更新UI更方便
+ 
+ */
+-(void)downloadWithURL:(NSURL *)url progress:(void (^)(float))progress completion:(void (^)(NSString *))completion failed:(void (^)(NSString *))failed
 {
-    //0.保存URL
+    //0.保存属性
+    self.downloadURL = url;
+    self.progressBlock = progress;
+    self.completionBlock = completion;
+    self.failedBlock = failed;
     self.downloadURL = url;
     
     //1.检查服务器上的文件大小!
@@ -54,6 +71,9 @@
     //2.检查本地文件大小!
     if(![self checkLocalFileInfo]){
         NSLog(@"文件已经下载完毕了!!");
+        if (self.completionBlock) {
+            self.completionBlock(self.filePath);
+        }
         return;
     };
     
@@ -62,6 +82,7 @@
     [self downloadFile];
 }
 
+#pragma mark - <私有方法>
 //从 self.currentLength 开始下载文件
 -(void)downloadFile{
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
@@ -83,7 +104,7 @@
     });
 }
 
-#pragma mark - <私有方法>
+
 /**
  *  检查本地文件信息 --> 判断是否需要下载
  *
@@ -97,6 +118,7 @@
         //2.获取文件大小
         NSDictionary * attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:self.filePath error:NULL];
         //fileSize = [attributes[NSFileSize] longLongValue];
+        NSLog(@"%@", attributes);
         //利用分类方法获取文件大小
         fileSize = [attributes fileSize];
     }
@@ -133,7 +155,7 @@
     //3.记录服务器的文件信息
     //3.1 文件长度
     self.expectedContentLength = response.expectedContentLength;
-    //3.2 建议保存的文件名,将在的文件保存在tmp ,系统会自动回收
+    //3.2 建议保存的文件名,将下载的文件保存在tmp ,系统会自动回收
     self.filePath = [NSTemporaryDirectory() stringByAppendingPathComponent:response.suggestedFilename];
     return;
 }
@@ -157,6 +179,10 @@
     
     float progress = (float)self.currentLength / self.expectedContentLength;
     NSLog(@"%f  %@",progress,[NSThread currentThread]);
+    //判断block是否存在
+    if (self.progressBlock) {
+        self.progressBlock(progress);
+    }
     
 }
 
@@ -168,6 +194,11 @@
     //停止运行循环
     CFRunLoopStop(self.downloadRunloop);
     NSLog(@"下载完成");
+    //判断BLock是否存在
+    if (self.completionBlock) {
+        //主线程回调
+        dispatch_async(dispatch_get_main_queue(), ^{self.completionBlock(self.filePath); });
+    }
 }
 
 //4.出错
@@ -178,6 +209,11 @@
     //停止运行循环
     CFRunLoopStop(self.downloadRunloop);
     NSLog(@"%@",error.localizedDescription);
+    
+    //判断BLock是否存在
+    if (self.failedBlock) {
+        self.failedBlock(error.localizedDescription);
+    }
 }
 
 

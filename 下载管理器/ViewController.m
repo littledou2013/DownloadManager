@@ -23,7 +23,7 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     LDDownloader * downloader = [[LDDownloader alloc]init];
-    [downloader downloadWithURL:[NSURL URLWithString:@"http://localhost/abc.wmv"]];
+    [downloader downloadWithURL:[NSURL URLWithString:@"http://localhost/abc.wmv"] progress:nil completion:nil failed:nil];
     
 }
 

@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x4e0b;&#x8f7d;&#x7ba1;&#x7406;&#x5668;/LDDownloader.m"
-            timestampString = "550832541.048745"
+            timestampString = "550837835.37095"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "-downloadWithURL:"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "-downloadWithURL:progress:completion:failed:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x4e0b;&#x8f7d;&#x7ba1;&#x7406;&#x5668;/LDDownloader.m"
-            timestampString = "550832541.049232"
+            timestampString = "550837835.378662"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "-downloadWithURL:"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "-downloadWithURL:progress:completion:failed:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x4e0b;&#x8f7d;&#x7ba1;&#x7406;&#x5668;/LDDownloader.m"
-            timestampString = "550832695.3216749"
+            timestampString = "550837835.379122"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
             landmarkName = "-connectionDidFinishLoading:"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "&#x4e0b;&#x8f7d;&#x7ba1;&#x7406;&#x5668;/LDDownloader.m"
-            timestampString = "550832696.522786"
+            timestampString = "550837835.379618"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
             landmarkName = "-connection:didFailWithError:"
             landmarkType = "7">
          </BreakpointContent>
