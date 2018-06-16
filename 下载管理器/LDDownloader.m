@@ -148,6 +148,7 @@
     //1.请求
     NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:url cachePolicy:1 timeoutInterval:kTimeOut];
     request.HTTPMethod = @"HEAD";
+    [request setValue:@"" forHTTPHeaderField:@"Accept-Encoding"];
     //2.建立网络连接
     NSURLResponse * response = nil;
     [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:NULL];
