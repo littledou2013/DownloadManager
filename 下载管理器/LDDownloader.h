@@ -20,4 +20,5 @@
  *  @param url 要下载的url
  */
 -(void)downloadWithURL:(NSURL *)url progress:(void (^)(float progress))progress completion:(void (^)(NSString * filePath))completion failed:(void (^)(NSString * errorMsg))failed;
+- (void)pause;
 @end

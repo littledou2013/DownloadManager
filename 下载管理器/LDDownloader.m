@@ -29,6 +29,8 @@
 /** 下载的Runloop */
 @property(assign,nonatomic)CFRunLoopRef downloadRunloop;
 
+@property(nonatomic,strong) NSURLConnection *downloadConnection;
+
 //--------------BLOCK属性---------------
 @property(copy,nonatomic)void(^progressBlock)(float);
 @property(copy,nonatomic)void(^completionBlock)(NSString *);
@@ -81,6 +83,10 @@
     [self downloadFile];
 }
 
+- (void)pause {
+    [self.downloadConnection cancel];
+}
+
 #pragma mark - <私有方法>
 //从 self.currentLength 开始下载文件
 -(void)downloadFile{
@@ -93,9 +99,9 @@
         [request setValue:rangeStr forHTTPHeaderField:@"Range"];
         
         //2.开始网络连接
-        NSURLConnection * conn = [NSURLConnection connectionWithRequest:request delegate:self];
+        self.downloadConnection = [NSURLConnection connectionWithRequest:request delegate:self];
         //3.启动完了连接
-        [conn start];
+        [self.downloadConnection start];
         
         //4.利用运行循环实现多线程不被回收
         self.downloadRunloop = CFRunLoopGetCurrent();
