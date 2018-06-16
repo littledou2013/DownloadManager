@@ -1,0 +1,17 @@
+//
+//  AppDelegate.h
+//  下载管理器
+//
+//  Created by 陈小双 on 2018/6/16.
+//  Copyright © 2018年 陈小双. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
+
+@property (strong, nonatomic) UIWindow *window;
+
+
+@end
+
