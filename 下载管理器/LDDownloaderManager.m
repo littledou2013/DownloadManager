@@ -70,4 +70,25 @@
     }];
 }
 
+
+
+/**
+ *  暂停下载
+ */
+/** 暂停下载 */
+-(void)pauseWithURL:(NSURL *)url
+{
+    //1.通过url获取下载任务
+    LDDownloader * download = self.downloaderCache[url.path];
+    //1.1.判断操作是否存在,如果不存在,提示用户
+    if (download == nil) {
+        return;
+    }
+    //2.暂停
+    [download pause];
+    //3.从缓冲池删除
+    [self.downloaderCache removeObjectForKey:url.path];
+    
+}
+
 @end

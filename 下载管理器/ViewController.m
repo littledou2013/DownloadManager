@@ -47,7 +47,7 @@
     }];
 }
 - (IBAction)pause:(id)sender {
-//    [[LDDownloaderManager sharedDownloaderManager] pause];
+    [[LDDownloaderManager sharedDownloaderManager] pauseWithURL:[NSURL URLWithString:@"https://dldir1.qq.com/qqfile/QQforMac/QQ_V6.4.0.dmg"]];
 }
 
 
