@@ -16,6 +16,7 @@
 		1B9594FF20D505E900121DC2 /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9594FE20D505E900121DC2 /* _____Tests.m */; };
 		1B95950A20D505E900121DC2 /* _____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B95950920D505E900121DC2 /* _____UITests.m */; };
 		1B95951920D5062D00121DC2 /* LDDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B95951820D5062D00121DC2 /* LDDownloader.m */; };
+		1BBEE2F820D913020016570F /* LDDownloaderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBEE2F720D913020016570F /* LDDownloaderManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		1B95950B20D505E900121DC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B95951720D5062D00121DC2 /* LDDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDownloader.h; sourceTree = "<group>"; };
 		1B95951820D5062D00121DC2 /* LDDownloader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDDownloader.m; sourceTree = "<group>"; };
+		1BBEE2F620D913020016570F /* LDDownloaderManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDownloaderManager.h; sourceTree = "<group>"; };
+		1BBEE2F720D913020016570F /* LDDownloaderManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDDownloaderManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				1B9594E520D505E900121DC2 /* AppDelegate.h */,
+				1BBEE2F620D913020016570F /* LDDownloaderManager.h */,
+				1BBEE2F720D913020016570F /* LDDownloaderManager.m */,
 				1B9594E620D505E900121DC2 /* AppDelegate.m */,
 				1B9594E820D505E900121DC2 /* ViewController.h */,
 				1B9594E920D505E900121DC2 /* ViewController.m */,
@@ -271,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B95951920D5062D00121DC2 /* LDDownloader.m in Sources */,
+				1BBEE2F820D913020016570F /* LDDownloaderManager.m in Sources */,
 				1B9594EA20D505E900121DC2 /* ViewController.m in Sources */,
 				1B9594F520D505E900121DC2 /* main.m in Sources */,
 				1B9594E720D505E900121DC2 /* AppDelegate.m in Sources */,

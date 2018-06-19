@@ -7,12 +7,11 @@
 //
 
 #import "ViewController.h"
-#import "LDDownloader.h"
+#import "LDDownloaderManager.h"
 
 @interface ViewController ()
 {
     CAShapeLayer * _progresslayer;
-    LDDownloader *_downloader;
 }
 @property (weak, nonatomic) IBOutlet UIView *progressView;
 @property (weak, nonatomic) IBOutlet UILabel *progressLabel;
@@ -33,8 +32,7 @@
     [self.progressView.layer addSublayer:_progresslayer];
 }
 - (IBAction)start:(id)sender {
-    _downloader = [[LDDownloader alloc]init];
-    [_downloader downloadWithURL:[NSURL URLWithString:@"https://dldir1.qq.com/qqfile/QQforMac/QQ_V6.4.0.dmg"] progress:^(float progress) {
+    [[LDDownloaderManager sharedDownloaderManager] downloadWithURL:[NSURL URLWithString:@"https://dldir1.qq.com/qqfile/QQforMac/QQ_V6.4.0.dmg"] progress:^(float progress) {
         NSLog(@"progress : %f", progress);
         dispatch_async(dispatch_get_main_queue(), ^{
             _progresslayer.strokeEnd = progress;
@@ -49,7 +47,7 @@
     }];
 }
 - (IBAction)pause:(id)sender {
-    [_downloader pause];
+//    [[LDDownloaderManager sharedDownloaderManager] pause];
 }
 
 
