@@ -45,8 +45,29 @@
         return;
     }
     LDDownloader *downloader = [[LDDownloader alloc] init];
-    [downloader downloadWithURL:url progress:progress completion:failed failed:failed];
     [self.downloaderCache setObject:downloader forKey:url.path];
+    
+    //传递block的参数
+    /**
+     下载完成之后清除下载操作
+     
+     问题:下载完成是异步的回调
+     
+     */
+    [downloader downloadWithURL:url progress:progress completion:^(NSString *filePath){
+        //1.从下载缓冲池中删除下载操作!
+        [self.downloaderCache removeObjectForKey:url.path];
+        //2.执行调用方传递的 Block
+        if (completion) {
+            completion(filePath);
+        }
+    } failed:^(NSString *errorMsg) {
+        //1.从下载缓冲池中删除下载操作!
+        [self.downloaderCache removeObjectForKey:url.path];
+        if (failed) {
+            failed(errorMsg);
+        }
+    }];
 }
 
 @end
